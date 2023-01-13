@@ -1,0 +1,278 @@
+:root {
+    --color-bg: #fff;
+    --color-fg: #444;
+    --color-box: #eee;
+    --color-box-fg: #444;
+    --color-dim: #ccc;
+    /*hero*/
+    --hero-bg1: #2d6799;
+    --hero-bg2: #4c96d7;
+    --color-a: #679;
+    --td-odd-color: #f0f0f0;
+    --td-border-color: #ccc;
+}
+
+.dark {
+    --color-bg: rgb(16, 32, 51);
+    --color-fg: #ccc;
+    --color-box: rgb(33, 55, 83);
+    --color-box-fg: #eee;
+    --color-dim: #999;
+    /*hero*/
+    --hero-bg1: #3a81be;
+    --hero-bg2: #244664;
+    --color-a: #abd;
+    --td-odd-color: rgb(17, 39, 65);
+    --td-border-color: rgb(38, 56, 78);
+}
+
+html,
+body {
+    min-height: 100vh;
+    background: var(--color-bg);
+}
+
+.x-container {
+    min-height: 76vh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    padding-bottom: 30px;
+}
+
+.hero-title {
+    background: linear-gradient(to bottom, var(--hero-bg1), var(--hero-bg2));
+    color: #fff;
+    padding: 20px;
+    margin: -20px 0 20px;
+}
+
+.hero-title h1 {
+    margin-top: 10px;
+}
+
+.navbar {
+    box-shadow: 0 4px 10px var(--hero-bg1);
+}
+
+.navbar-brand {
+    margin: -34px 0 -30px -20px;
+    padding: 30px;
+}
+
+.box {
+    background: var(--color-box);
+    color: var(--color-box-fg)
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 20px;
+}
+
+a,
+a:visited {
+    color: var(--color-a);
+}
+
+.actionable {
+    cursor: pointer;
+}
+
+pre,
+blockquote {
+    background: #1d5280;
+    color: #fff;
+    padding: 15px;
+    margin: 0 -12px 15px;
+}
+
+.dark pre[class*="language-"] {
+    background: #27333e;
+}
+
+table {
+    width: 100%;
+    margin: 20px 0 30px;
+}
+
+th {
+    border-bottom: 2px solid var(--td-border-color);
+}
+
+td {
+    border-bottom: 1px solid var(--td-border-color);
+}
+
+th {
+    color: #568;
+    font-size: .8em;
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--td-odd-color);
+}
+
+td {
+    padding: 4px;
+}
+
+.x-footer {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    padding: 20px 10px 40px;
+    border-top: 3px solid var(--hero-bg1);
+}
+
+.dark .y-footer {
+    opacity: .25;
+}
+
+.x-footer a,
+.x-footer a:visited {
+    color: var(--color-a);
+}
+
+.post-md img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.contained {
+    padding: 40px 0;
+}
+
+.contained.a {
+    background: var(--hero-bg1);
+    color: #fff;
+}
+
+.contained.b {
+    background: var(--hero-bg2);
+    color: #fff;
+}
+
+.contained.a a {
+    color: #fff;
+}
+
+.dark code {
+    color: #caa3ff;
+}
+
+.post-item {
+    padding: 10px;
+    border-radius: 9px;
+    margin: 10px;
+    overflow: hidden;
+    width: 350px;
+    min-width: 350px;
+    float: left;
+}
+
+.post-item .title {
+    font-size: 1.6em;
+}
+
+.post-item .thumb {
+    height: 150px;
+    width: 100%;
+    transition: .3s ease-in;
+}
+
+.post-item:hover .thumb {
+    transition: .5s ease-in;
+    transform: scale(1.4);
+}
+
+.post-tag {
+    text-decoration: none;
+    color: #fff;
+    background: #568;
+    padding: 2px 9px 2px 11px;
+    border-radius: 16px 4px 4px 16px;
+    white-space: nowrap;
+}
+
+.youtube-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.youtube-responsive-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    margin: 0 -12px;
+}
+
+.youtube-responsive-container iframe,
+.youtube-responsive-container object,
+.youtube-responsive-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ICONS select */
+
+.icn {
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    background-color: #457;
+    vertical-align: middle;
+    padding: 0 16px;
+}
+
+.dark .icn {
+    background-color: #abd;
+}
+
+.icn.text-danger {
+    background-color: red;
+}
+
+.icn-check {
+    mask: url(./svg/check-solid.svg) no-repeat 50% 50%;
+    mask-size: fit;
+    -webkit-mask: url(./svg/check-solid.svg) no-repeat 50% 50%;
+    -webkit-mask-size: fit;
+}
+
+.icn-discord {
+    mask: url(./svg/discord-brands.svg) no-repeat 50% 50%;
+    mask-size: fit;
+    -webkit-mask: url(./svg/discord-brands.svg) no-repeat 50% 50%;
+    -webkit-mask-size: fit;
+}
+
+.icn-moon {
+    mask: url(./svg/moon-regular.svg) no-repeat 50% 50%;
+    mask-size: fit;
+    -webkit-mask: url(./svg/moon-regular.svg) no-repeat 50% 50%;
+    -webkit-mask-size: fit;
+}
+
+.icn-sun {
+    mask: url(./svg/sun-regular.svg) no-repeat 50% 50%;
+    mask-size: fit;
+    -webkit-mask: url(./svg/sun-regular.svg) no-repeat 50% 50%;
+    -webkit-mask-size: fit;
+}
+
+.icn-sm {
+    font-size: .8em;
+}
+
+.icn-lg {
+    font-size: 2em;
+}
