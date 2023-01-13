@@ -12,11 +12,12 @@ let logoutPage = Astro.props.logoutPage || "/logout";
 <div id="user-logged-out" style="display:none;">
     <a href={discord_oauth_url}>Login <i class="fab fa-discord"></i></a>
 </div>
-<div id="user-logged-in" style="display:none;">
+<div id="user-logged-in" class="auth-comp" style="display:none;">
     <div class="dropdown">
         <span
             class="btn btn-sm btn-secondary dropdown-toggle"
             data-bs-toggle="dropdown"
+            aria-expanded="false"
         >
             <img id="user-avatar" height="28" style="margin:0 0 0 -6px;" />
             <span id="username"></span>
@@ -26,7 +27,8 @@ let logoutPage = Astro.props.logoutPage || "/logout";
                 <a
                     class="dropdown-item"
                     id="action-logout"
-                    style="cursor:pointer">Logout</a>
+                    style="cursor:pointer">Logout</a
+                >
             </li>
         </ul>
     </div>
@@ -37,13 +39,24 @@ let logoutPage = Astro.props.logoutPage || "/logout";
     src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
 ></script>
 <script type="text/javascript" define:vars={{ logoutPage }}>
-    var expires = localStorage.getItem("expires") || 0;
-    var m_expires = moment(expires);
-    var now = moment();
-    if (now.isBefore(m_expires)) {
-        document.getElementById("user-logged-in").style.display = "";
-        var user = JSON.parse(localStorage.getItem("discord_user"));
-        // document.getElementById('username').innerText = user.username;
+    function getLoggedInUser() {
+        var expires = localStorage.getItem("expires") || 0;
+        var m_expires = moment(expires);
+        var now = moment();
+        if (now.isBefore(m_expires)) {
+            document.getElementById("user-logged-in").style.display =
+                "inline-block";
+            var user = JSON.parse(localStorage.getItem("discord_user"));
+            return user;
+        } else {
+            return false;
+        }
+    }
+
+    var user = getLoggedInUser();
+    if (user) {
+        document.getElementById("user-logged-in").style.display =
+            "inline-block";
         document.getElementById("user-avatar").src =
             "https://cdn.discordapp.com/avatars/" +
             user.id +
@@ -51,7 +64,8 @@ let logoutPage = Astro.props.logoutPage || "/logout";
             user.avatar +
             ".png";
     } else {
-        document.getElementById("user-logged-out").style.display = "";
+        document.getElementById("user-logged-out").style.display =
+            "inline-block";
     }
     document
         .getElementById("action-logout")
@@ -65,7 +79,6 @@ let logoutPage = Astro.props.logoutPage || "/logout";
 <style scoped>
     #user-logged-out a,
     #user-logged-out a:visited {
-        color: #ffa;
         text-decoration: none;
     }
 </style>
